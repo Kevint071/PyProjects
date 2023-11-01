@@ -1,4 +1,4 @@
-from credencial_fl0 import conn
+from funciones import conn
 from time import sleep
 
 

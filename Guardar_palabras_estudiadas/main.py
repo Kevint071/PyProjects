@@ -1,7 +1,6 @@
 from os import chdir, path
 from conexion_DB_biblia import crear_tabla, existencia_tabla
-from credencial_fl0 import conn
-from funciones import limpiar_pantalla, estudiar_nueva_palabra, consultar_palabras, eliminar_palabra
+from funciones import conn, limpiar_pantalla, estudiar_nueva_palabra, consultar_palabras, eliminar_palabra
 
 chdir(path.dirname(path.abspath(__file__)))
 

@@ -1,7 +1,11 @@
-from os import system, name
+from os import system, name, getenv
+from psycopg2 import connect
 import requests
 from bs4 import BeautifulSoup
-from credencial_fl0 import conn
+from dotenv import load_dotenv
+
+load_dotenv()
+conn = connect(getenv("DATABASE_URL"))
 
 
 def limpiar_pantalla():
