@@ -2,8 +2,12 @@ import requests
 from time import sleep
 import webbrowser 
 import pyautogui as pyto
-from os import name, system
-from Api_key import api_key
+from os import name, system, getenv
+from dotenv import load_dotenv
+from colorama import Fore, Style, init
+
+load_dotenv()
+init()
 
 
 def limpiar_pantalla():
@@ -17,22 +21,22 @@ def obtenerPalabra():
   url = "https://random-word-api.p.rapidapi.com/get_word"
 
   headers = {
-    "X-RapidAPI-Key": api_key,
+    "X-RapidAPI-Key": getenv("API_KEY"),
     "X-RapidAPI-Host": "random-word-api.p.rapidapi.com"
   }
 
   response = requests.get(url, headers=headers)
   word = response.json()["word"]
   return word
-
+ 
 
 def elegir_navegador():
   url_navegadores = {
-    "1": "https://www.bing.com",
-    "2": "https://www.google.es/",
-    "3": "https://search.brave.com/",
-    "4": "https://duckduckgo.com/",
-    "5": "https://search.yahoo.com/"
+    "1": ("https://www.bing.com/search?q=", "&qs=n&form=QBRE&setlang=es"),
+    "2": ("https://www.google.es/search?q=", "&source=web"),
+    "3": ("https://search.brave.com/search?q=", ""),
+    "4": ("https://duckduckgo.com/?q=", "&t=h_&ia=web"),
+    "5": ("https://search.yahoo.com/search?p=", "")
   }
 
   navegador = input("""Digite el navegador para hacer las búsquedas: 
@@ -48,33 +52,31 @@ def elegir_navegador():
   return url_navegadores[navegador]
 
 
-def abrir_navegador(url):
-  webbrowser.open(url)
-  sleep(3)
+def cerrar_pagina():
+   pyto.hotkey("ctrl", "w")
 
 
-def hacer_busqueda():
-  word = obtenerPalabra()
-  pyto.write(word)
-  sleep(0.5)
-  pyto.press("enter")
-  sleep(4)
-  pyto.hotkey("ctrl", "w")
-  sleep(1)
-  return word
+def hacer_busqueda(datos_url, buscar_apalabra = False):
+  if buscar_apalabra:
+    word = obtenerPalabra()
+    webbrowser.open(datos_url[0] + word + datos_url[1])
+    return word
+  else:
+    webbrowser.open(datos_url)
 
 
 def run():
   limpiar_pantalla()
-  url = elegir_navegador()
+  print(Fore.LIGHTCYAN_EX + "ABRE PRIMERO EL NAVEGADOR WEB PREDETERMINADO ANTES DE EJECUTAR EL PROGRAMA, LUEGO REGRESA PARA CONTINUAR".center(110, "*"), end="\n\n" + Style.RESET_ALL)
+  datos_url = elegir_navegador()
   cantidad_busquedas = int(input("\nDigite el número de busquedas que quiere hacer: "))
-  abrir_navegador(url)
+  hacer_busqueda(datos_url[0])
   limpiar_pantalla()
   print(f"Total de busquedas a realizar: {cantidad_busquedas}\n")
 
   # Comenzar busquedas
 
-  [(abrir_navegador(url), print(f"Busqueda {i+1}: {hacer_busqueda()}")) for i in range(cantidad_busquedas)]
+  [(print(f"Busqueda {i+1}: {hacer_busqueda(datos_url, True)}"), sleep(4), cerrar_pagina()) for i in range(cantidad_busquedas)]
   
 
 if __name__ == "__main__":
