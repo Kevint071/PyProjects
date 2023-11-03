@@ -1,5 +1,9 @@
-from credenciales import conn
+from os import getenv
+from dotenv import load_dotenv
+from psycopg2 import connect
 
+load_dotenv()
+conn = connect(getenv("DATABASE_URL"))
 
 def existencia_tabla():
     cursor = conn.cursor()

@@ -1,9 +1,7 @@
 from os import name, system
-from credenciales import conn
-from Conexion_base_de_datos import existencia_tabla, crear_tabla
+from Conexion_base_de_datos import existencia_tabla, crear_tabla, conn
 
 lista_palabras = {}
-
 
 tabla_existe = existencia_tabla()
 if tabla_existe == False:

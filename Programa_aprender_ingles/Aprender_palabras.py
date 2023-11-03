@@ -1,5 +1,5 @@
 from tkinter import Tk, Canvas, Label, Entry, Button, Toplevel, font, END, Listbox
-from credenciales import conn
+from Conexion_base_de_datos import conn
 from Estudiar_palabras_verbos_ingles import iniciar_test
 
 palabras_traducidas = {}
