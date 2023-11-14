@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+colorama = "*"
+requests = "*"
+pyautogui = "*"
+python-dotenv = "*"
+opencv-python = "*"
+psycopg2 = "*"
+bs4 = "*"
+selenium = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
