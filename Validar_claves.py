@@ -3,12 +3,12 @@ from requests.exceptions import RequestException
 from colorama import Fore, Style, init
 import sys
 
-# Para que una clave sea correcta debe estar la letra la cantidad indicada en el rango
-#Ejemplo de la respuesta de la peticion:
+# Para que una clave sea correcta, la letra debe estar la cantidad de veces indicada en el rango
+# Ejemplo de la respuesta de la peticion:
 
 # 8-10 r: ozrcdfnug
 #
-# Aqui debe haber entre 8 y 10 letras 'r' pero solo hay 1 así que es falso
+# Aqui debe haber entre 8 y 10 letras 'r' pero solo hay 1 así que esta clave no es válida
 
 def ejecutar_peticion(url: str):
   try:
