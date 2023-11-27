@@ -10,7 +10,6 @@ pyautogui = "*"
 python-dotenv = "*"
 opencv-python = "*"
 psycopg2 = "*"
-bs4 = "*"
 selenium = "*"
 
 [dev-packages]
