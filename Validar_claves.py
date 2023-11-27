@@ -3,6 +3,8 @@ from requests.exceptions import RequestException
 from colorama import Fore, Style, init
 import sys
 
+init()
+
 # Para que una clave sea correcta, la letra debe estar la cantidad de veces indicada en el rango
 # Ejemplo de la respuesta de la peticion:
 
