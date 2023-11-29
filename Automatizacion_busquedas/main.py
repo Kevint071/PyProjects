@@ -76,7 +76,7 @@ def run():
 
   # Comenzar busquedas
 
-  [(print(f"Busqueda {i+1}: {hacer_busqueda(datos_url, True)}"), sleep(4), cerrar_pagina()) for i in range(cantidad_busquedas)]
+  [(print(f"Busqueda {i}: {hacer_busqueda(datos_url, True)}"), sleep(8.5), cerrar_pagina()) for i in range(1, cantidad_busquedas+1)]
   
 
 if __name__ == "__main__":
