@@ -37,7 +37,7 @@ response_text = ejecutar_peticion(url)
 codigos = response_text.split("\n")
 codigos = [codigo.split(" ") for codigo in codigos]
 
-validacion_codigos = [f"{indice + 1}. {codigo}" + Fore.LIGHTGREEN_EX + " Correcto" + Style.RESET_ALL if validar_codigo(codigo) else f"{indice + 1}. {codigo}" + Fore.LIGHTRED_EX + " Incorrecto" + Style.RESET_ALL for indice, codigo in enumerate(codigos)]
+validacion_codigos = [f"{indice}. {codigo}" + Fore.LIGHTGREEN_EX + " Correcto" + Style.RESET_ALL if validar_codigo(codigo) else f"{indice}. {codigo}" + Fore.LIGHTRED_EX + " Incorrecto" + Style.RESET_ALL for indice, codigo in enumerate(codigos, start=1)]
 
 for codigo in validacion_codigos:
   print(codigo)
