@@ -11,8 +11,12 @@ python-dotenv = "*"
 opencv-python = "*"
 psycopg2 = "*"
 selenium = "*"
+pylint = "*"
+flet = "*"
+pyinstaller = "*"
 
 [dev-packages]
+black = "*"
 
 [requires]
 python_version = "3.11"
