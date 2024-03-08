@@ -37,5 +37,3 @@ quitar_espacio = int(input("""\n\n¿Quieres quitar el espacio sobrante y distrib
 if quitar_espacio == 1:
     espacio_varillas += (distancia_restante / num_espacios)
     print(f"\nPara que el espacio sobrante sea de 0, el espacio entre cada varilla debe ser de {espacio_varillas:g} cm")
-else:
-    pass
