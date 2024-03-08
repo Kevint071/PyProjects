@@ -2,8 +2,7 @@ from os import path, chdir
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import UnexpectedAlertPresentException
 from time import sleep
@@ -151,9 +150,6 @@ def agregar_efectividad(num):
     except:
         print("Error al clickear el input de efectividad...\n")
 
-    # Digitando el porcentaje de efectividad
-    input_efectividad.send_keys(f"{num}")
-
 
 def agregar_direccion_op():
     """Agrega una dirección en la página."""
@@ -206,7 +202,6 @@ def agregar_dia(dia):
         sleep(0.1)
         input_dia.clear()
         sleep(0.1)
-        input_dia.send_keys(f"{dia}")
     except:
         print('No se pudo agregar el dia...\n')
 
