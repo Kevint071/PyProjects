@@ -5,147 +5,67 @@ opcion_cancion = int(input("""Seleccione la canción a transportar:
     
     Elija una opción (Ej: 1): """))
 
-cancion_notas_ejemplo = """// INTRODUCCIÓN
+cancion_notas_ejemplo = """Ritmo de intro (re# la# sol,   do# la# fa,    do sol# fa)
 
-// Sol sol# Re#
-// sol#
-// Do# do sol#
-// Fa m
-// Sol sol# sol agudo
-// Do m
-// Do# do sol#
-// Do#
+Re# Re# Re# Re# do do# do la#
+Lights go out and I can't be saved
 
+Do#     do# do# do#     do# do la# sol#
+Tides that I tried to swim against
 
-// ESTROFA
+Re# re# re# do do# do la#
+Have brought me down upon my knees
 
-sol# do do do la# do# sol#
-sol#                   do#
-Viniste a mi casa
+Do#     do# do#     la# do la# sol fa re# 
+Oh, I beg, I beg and plead, singing
 
-do# do# do do# do
-                 sol#    
-Me visitaste
+Re# re# do do# do la#
+Come out of things unsaid
 
-do do do do# re# do do# sol#
-                              do#
-Disfruté tu presencia
+Do#    do# do#     la# do la# sol# 
+Shoot an apple off my head
 
-sol# fa re# do do 
-                 Fam
-Me cautivaste
+Fa re# Re# re# do do# do la#
+And a trouble that can't be named
 
-do sol# sol fa re# fa sol#
-                                  do#
-No quiero que te vayas
+La# do# do# do# la# do la# sol# fa re#
+A tiger's waiting to be tamed, singing
 
-sol# fa re# do# do do do#
-                                    la#m
-Yo quiero que te quedes
+(Sol sol# fa re# sol)x2
+You are, you are
 
-la# la# do do# do do# do do# do# do# re# re#
-                do#                                     re#
-He preparado un aposento para ti
+Re#x3 do# do la#
+Confusion never stops
 
+Do#x4 do la# sol# 
+Closing walls and ticking clocks
 
-// CORO
+Fa re# Re#x2 do do# do la#
+Gonna come back and take you home
 
-re# fa fa
-               do#
-Mi amado
+La# do#x3 la# do la# sol# fa re#
+I could not stop that you now know, singing
 
-re# fa fa
-               la#m
-Mi amado
+Re#x2 do do# do la#
+Come out upon my seas
 
-do# do# do do# re# do# do do la# la# sol# la# do la# 
-                            sol#                                   re#
-Yo soy La Sunamita que te dice: Vive aquí
+Do#x3 la# do la# sol#
+Cursed missed opportunities
 
-(Bis)
+Fa re# re#x2 do# do la#
+Am I a part of the cure?
 
-INTRODUCCIÓN
-ESTROFA
-CORO x2
+La# do#x3 la# do la# sol# fa re#
+Or am I part of the disease? Singing
 
-re# sol# sol fa
-                   Do#
-Uh oh oh oh
+(Sol sol# fa re# sol)x2
+You are, you are
 
-re# sol# sol sol
-                   Re#
-Uh oh oh oh
+(Sol sol# fa re# sol)x2
+You are, you are
 
-re# sol# sol fa
-                   Fam
-Uh oh oh oh
-
-re# sol# sol sol
-                   Dom
-Uh oh oh oh
-
-(Bis)
-
-// NO IMPORTA TODO LO QUE CUESTE
-
-fa re# fa re# fa re# fa sol sol# sol
-Do#                                                Re#
-No importa todo lo que cueste
-
-sol fa sol fa sol sol# sol fa fa
-                                                 Fam
-Tu presencia vale mucho más
-
-fa re# fa re# fa sol sol# sol
-Solo quiero estar contigo
-
-sol sol# sol sol# sol sol# sol fa fa
-Dom                                      Do#
-Una y otra, y otra, y otra vez
-
-fa re3 fa re# fa re# fa sol sol# sol
-                                              Do# Re#
-No importa todo lo que cueste
-
-sol fa sol fa sol sol# la# do fa
-                                     Re#      Fam
-Tu presencia vale mucho más
-
-fa re# fa re# fa sol sol# sol
-Solo quiero estar contigo
-
-sol sol# sol sol# sol sol# sol fa fa
-Dom                Dom             Do#
-Una y otra, y otra, y otra vez
-
-(Bis) x2
-
-CORO x2
-No importa todo lo que cueste x4
-
-// EN TU APOSENTO RESUCITARE 
-
-do do re# fa re# fa re# fa re# fa
-                  Do# 
-En tu aposento resucitaré
-
-re# re# sol# sol sol sol sol# sol re#
-                   Re#
-En tu aposento me levantaré
-
-do do re# fa re# fa re# fa re# fa
-                  Fam 
-En tu aposento resucitaré
-
-re# re# sol# sol sol sol sol# sol re#
-                   Dom
-En tu aposento me levantaré
-
-(Bis) x1.5
-
-NO IMPORTA  TODO LO QUE CUESTE x1.5
-CORO x3
-NO IMPORTA TODO LO QUE CUESTE""".lower()
+Ritmo de intro (re# la# sol,   do# la# fa,    do sol# fa)
+You are, you are""".lower()
 cancion_notas = cancion_notas_ejemplo if opcion_cancion == 1 else input("\nAgregue la cancion con las notas: ")
 
 
