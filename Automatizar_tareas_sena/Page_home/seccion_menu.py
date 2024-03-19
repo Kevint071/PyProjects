@@ -14,7 +14,7 @@ def seccion_menu():
                     
                 # ),
                 ft.Container(
-                    content=ft.Text("Gestión de Evidencias", color=ft.colors.BLACK87, weight=ft.FontWeight.W_700, size=20),
+                    content=ft.Text("Evidencias", color=ft.colors.BLACK87, weight=ft.FontWeight.W_700, size=20),
                     alignment=ft.alignment.top_left,
                     height=25,
                     padding = ft.padding.only(left=20, top=0),
@@ -102,16 +102,8 @@ def seccion_menu():
                     alignment=ft.alignment.top_left,
                     height=25,
                     padding = ft.padding.only(left=20, top=0),
-                    margin = ft.margin.only(top=10),
-                    on_click=lambda _: print("Foros Cointestados Mostrados!"),
-                ),
-                ft.Container(
-                    content=ft.Row([ft.Icon(name=ft.icons.LIBRARY_BOOKS),ft.Text("Foros Contestados", color=ft.colors.BLACK87, weight=ft.FontWeight.W_500, size=15)]),
-                    alignment=ft.alignment.top_left,
-                    height=25,
-                    padding = ft.padding.only(left=20, top=0),
-                    margin = ft.margin.only(top=10),
-                    on_click=lambda _: print("Foros Cointestados Mostrados!"),
+                    margin = ft.margin.only(top=10, bottom=20),
+                    on_click=lambda _: print("Foros Contestados Mostrados!"),
                 ),
             ],
             spacing=20,

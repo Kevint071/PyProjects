@@ -10,7 +10,7 @@ def configuracion_ventana(page: ft.Page):
     page.window_center()
     page.window_resizable = False
     page.window_maximizable = False
-    page.bgcolor = "#101010"
+    page.theme_mode = ft.ThemeMode.LIGHT
 
 
 def main(page: ft.Page):
@@ -29,10 +29,6 @@ def main(page: ft.Page):
         expand=True,
         alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
     )
-
-    
-               
-
     
     contenedor_principal.controls.append(seccion_menu())
     contenedor_principal.controls.append(ft.VerticalDivider(width=0))
