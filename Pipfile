@@ -14,6 +14,7 @@ selenium = "*"
 pylint = "*"
 flet = "*"
 pyinstaller = "*"
+windows-curses = "*"
 
 [dev-packages]
 black = "*"
