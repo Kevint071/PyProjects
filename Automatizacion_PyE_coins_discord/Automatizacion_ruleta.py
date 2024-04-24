@@ -1,8 +1,9 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from Herramientas_pagina import esperar_obtener_elemento, esperar_obtener_elementos, obtener_driver
+from Herramientas_pagina import esperar_obtener_elemento, esperar_obtener_elementos
 from time import sleep, time
+from Globals import variables_globales
 
 
 def obtener_dinero(balance):
@@ -43,7 +44,7 @@ def guardar_dinero(dinero_a_guardar):
 
 def iniciar_automatizacion_ruleta():
     global Driver
-    Driver = obtener_driver()
+    Driver = variables_globales["Driver"]
 
     balance = 4000
     balance_temporal = 4000
