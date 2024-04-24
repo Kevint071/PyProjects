@@ -1,8 +1,9 @@
 from Interfaz_espera import ventana_confirmacion
 from Herramientas_pagina import ejecutar_navegador
-from Automatizacion_slots import iniciar_automatizacion_slot, guardar_todo_dinero
+from Automatizacion_slots import iniciar_automatizacion_slot
 from Interfaz_eleccion_juego import ventana_eleccion_juego
 from Automatizacion_ruleta import iniciar_automatizacion_ruleta
+from Comandos_juegos import guardar_todo_dinero
 from time import sleep
 
 
@@ -11,16 +12,15 @@ def conteo_inicio():
     for i in range(3, 0, -1):
         print("\b" * 4 + f"{i}...", end="", flush=True)
         sleep(1)
-    print("\nComenzando automatización...")
+    print("\nComenzando automatización...\n")
 
 
 def run():
     url = "https://discord.com/channels/768278151435386900/973425187301261393"
-    ejecutar_navegador(url)
-
-    ventana_confirmacion()
     juego = ventana_eleccion_juego()
 
+    ejecutar_navegador(url)
+    ventana_confirmacion()
     conteo_inicio()
 
     if juego == "Slot":
