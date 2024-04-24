@@ -13,11 +13,11 @@ import unicodedata
 def jugar_slot(coins):
     text_box = esperar_obtener_elemento(Driver, By.XPATH, "//form/div/div/div/div[3]/div/div[2]")
     text_box.click()
-    sleep(0.3)
+    sleep(0.5)
     text_box.send_keys(f"!slots {coins}")
     sleep(2)
     text_box.send_keys(f"{Keys.ENTER}")
-    sleep(1.2)
+    sleep(randint(3, 5))
 
 
 def normalizar_texto(texto):
@@ -42,15 +42,14 @@ def obtener_nombres_usuario():
 
 def detector_de_llamada(texto: str, nombre: str, nombre_usuario: str):
     texto_normalizado = normalizar_texto(texto)
-    secciones_texto = [texto_normalizado[i:i+3].strip() for i in range(0, len(texto_normalizado), 3)]
-
-    print(f"Texto normalizado: {texto_normalizado}")
-    print(f"Secciones texto: {secciones_texto}")
 
     if texto_normalizado.count(nombre) or texto_normalizado.count(nombre_usuario):
          print(f"Posible llamada: {texto_normalizado}")
          return True
     else:
+        palabras = texto_normalizado.split(" ")
+        secciones_texto = [palabra[i:i+3] for palabra in palabras for i in range(len(palabra)-2) if len(palabra[i:i+3]) == 3]
+        
         for seccion_texto in secciones_texto:
             if nombre.count(seccion_texto) or nombre_usuario.count(seccion_texto):
                 print(f"Posible llamada: {seccion_texto}")
@@ -69,10 +68,9 @@ def proteccion_antibot(nombre: str, nombre_usuario: str, cantidad_jugadas_activa
 
     for mensaje in mensajes_chat:
         spans = esperar_obtener_elementos(mensaje, By.TAG_NAME, 'span')
-        spans = set([span.text for span in spans])
+        spans = [span.text for span in spans]
 
         for span in spans:
-            print(span)
             llamada = detector_de_llamada(span, nombre, nombre_usuario)
             sonar_alerta() if llamada else None 
 
@@ -128,12 +126,12 @@ def guardar_todo_dinero():
 
 def estrategia_slots(jugadas_realizadas, coins, nombre, nombre_usuario):
     tiempo_inicio_operacion = time()
-    sleep(randint(1, 3))
     cantidad_jugadas_activar_antibot = 5
+
     if jugadas_realizadas >= cantidad_jugadas_activar_antibot:
         proteccion_antibot(nombre, nombre_usuario, cantidad_jugadas_activar_antibot)
+
     jugar_slot(coins)
-    sleep(1)
     jugada, dinero_jugada = obtener_jugada_slot(jugadas_realizadas, nombre_usuario)
 
     if "perdido" in jugada:
