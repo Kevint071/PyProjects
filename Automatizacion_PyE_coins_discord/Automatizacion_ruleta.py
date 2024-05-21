@@ -1,7 +1,7 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from Herramientas_pagina import esperar_obtener_elemento, esperar_obtener_elementos
+from Herramientas_navegador import esperar_obtener_elemento, esperar_obtener_elementos
 from time import sleep, time
 from Globals import variables_globales
 
