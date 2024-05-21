@@ -21,7 +21,6 @@ def ejecutar_navegador(url):
     Driver.maximize_window()
 
     # Definir la ruta a abrir y abrirla
-    
     Driver.get(url)
     return Driver
 
@@ -33,7 +32,7 @@ def esperar_obtener_elemento(locator, by_arg, valor_arg, time=3):
     Returns: WebElement: El elemento encontrado.
     """
     WebDriverWait(locator, time).until(EC.presence_of_element_located((by_arg, valor_arg)))
-    element = Driver.find_element(by=by_arg, value=valor_arg)
+    element = locator.find_element(by=by_arg, value=valor_arg)
     return element
 
 
@@ -44,7 +43,7 @@ def esperar_obtener_elementos(locator, by_arg, valor_arg, time=3):
     Returns: WebElement: El elemento encontrado.
     """
     WebDriverWait(locator, time).until(EC.presence_of_all_elements_located((by_arg, valor_arg)))
-    elements = Driver.find_elements(by=by_arg, value=valor_arg)
+    elements = locator.find_elements(by=by_arg, value=valor_arg)
     return elements
 
 
