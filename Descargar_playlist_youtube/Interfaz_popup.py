@@ -2,7 +2,8 @@ from Configuracion_interfaces import configuracion_ventana_popup, estilos_ventan
 from tkinter import ttk
 from threading import Thread
 from tkinter import Frame, LEFT
-from Logica_interfaces import agregar_tipo_formato, obtener_ventana_emergente_abierta, modificar_ventana_emergente_abierta, cerrar_ventana, obtener_descargar_videos, deshabilitar_botones
+from Logica_interfaces import obtener_ventana_emergente_abierta, modificar_ventana_emergente_abierta, cerrar_ventana, obtener_descargar_videos, deshabilitar_botones
+from Globals import variables_globales
 
 
 def mensaje_descarga(formato: str):
@@ -12,7 +13,8 @@ def mensaje_descarga(formato: str):
 
 def boton_aceptar_comando(formato):
     cerrar_ventana(popup)
-    agregar_tipo_formato(formato)
+    variables_globales["formato"] = formato
+    
     deshabilitar_botones()
     hilo_descarga = Thread(target=obtener_descargar_videos)
     hilo_descarga.start()
