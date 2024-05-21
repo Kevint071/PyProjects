@@ -1,4 +1,4 @@
-from Comandos_juegos import agregar_driver, consultar_dinero, obtener_nombres_usuario, ejecutar_funciones_aleatorias, obtener_dinero, guardar_todo_dinero, estrategia_slots
+from Comandos_juegos import consultar_dinero, obtener_nombres_usuario, ejecutar_funciones_aleatorias, obtener_dinero, guardar_todo_dinero, estrategia_slots, agregar_driver
 from time import time, sleep
 from random import randint, sample
 from math import ceil
@@ -31,7 +31,10 @@ def iniciar_automatizacion_slot():
     cantidad_jugadas = cantidad_jugadas.pop()
 
     for numero_slot in range(1, cantidad_jugadas):
+        tiempo_inicio_operacion = time()
         dinero_jugada = estrategia_slots(numero_slot, coins, nombre, nombre_usuario)
+        if not dinero_jugada:
+             return False
         balance_temporal += dinero_jugada
 
         jugadas_ganadas = variables_globales["jugadas_ganadas"]
@@ -84,8 +87,11 @@ def iniciar_automatizacion_slot():
         print(f"Próxima consulta en {revision_balance - (jugadas_ganadas + jugadas_perdidas)} jugadas")
         print(f"Próxima consulta en {revision_balance_perdidas - jugadas_perdidas} jugadas perdidas")
         print((f"Próxima guardada en {jugadas_ganadas_requeridas_guardar - jugadas_ganadas_temporales} jugadas ganadas") if jugadas_ganadas_requeridas_guardar - jugadas_ganadas_temporales > 0 else f"Próxima guardada en {revision_balance - (jugadas_ganadas + jugadas_perdidas)} jugadas")
-        
         print("-" * 40 + "\n")
+
+        sleep(randint(2, 3))
+        tiempo_fin_operacion = time()
+        print(Fore.YELLOW + f"Tiempo de jugada: {round(tiempo_fin_operacion - tiempo_inicio_operacion, 2)} segundos\n" + Style.RESET_ALL)
     
     if revision_balance_perdidas - jugadas_perdidas != 0:
         consultar_dinero()
