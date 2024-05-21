@@ -85,7 +85,7 @@ def descargar_audio(indice, nombre, link, directorio: str, label_info):
         return False
 
 
-def descarga_de_archivos(info_videos, directorio, formato, label_info):
+def descargar_archivos(info_videos, directorio, formato, label_info):
     archivos_omitidos = 0
 
     for indice, info_video in enumerate(info_videos, start=1):
