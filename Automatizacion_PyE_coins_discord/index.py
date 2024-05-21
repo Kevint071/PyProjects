@@ -1,9 +1,8 @@
 from Interfaz_espera import ventana_confirmacion
-from Herramientas_pagina import ejecutar_navegador
+from Herramientas_navegador import ejecutar_navegador
 from Automatizacion_slots import iniciar_automatizacion_slot
 from Interfaz_eleccion_juego import ventana_eleccion_juego
 from Automatizacion_ruleta import iniciar_automatizacion_ruleta
-from Comandos_juegos import guardar_todo_dinero
 from time import sleep
 
 
@@ -24,10 +23,7 @@ def run():
     conteo_inicio()
 
     if juego == "Slot":
-        try:
-            iniciar_automatizacion_slot()
-        except KeyboardInterrupt:
-            guardar_todo_dinero()
+        iniciar_automatizacion_slot()
     elif juego == "Ruleta":
         iniciar_automatizacion_ruleta()
 
