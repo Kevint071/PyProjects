@@ -1,0 +1,9 @@
+colorama
+requests
+pyautogui
+python-dotenv
+opencv-python
+selenium
+flet
+pyinstaller
+psycopg2
