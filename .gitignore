@@ -1,4 +1,5 @@
-Api_key.py
-.env
 __pycache__
 .idx
+.vscode
+.venv
+.env
