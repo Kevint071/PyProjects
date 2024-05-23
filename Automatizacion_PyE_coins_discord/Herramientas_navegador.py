@@ -1,20 +1,11 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from Globals import variables_globales
+from Globals import Driver
 
 
 def ejecutar_navegador(url):
-    options = Options()
-    options.add_argument("--log-level=3")
-
-    global Driver
-    Driver = webdriver.Chrome(options=options)
-    Driver.maximize_window()
     Driver.get(url)
-    
-    variables_globales["Driver"] = Driver
 
 
 def esperar_obtener_elemento(locator: webdriver.Chrome, by_arg, valor_arg, time=3):
