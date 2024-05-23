@@ -14,8 +14,8 @@ def filtrar_carpetas_archivos(directorio):
     ext_ignorar = [".ini"]
     lista_directorio = listdir(directorio)
 
-    def filtrar_extension(nombre):
-        if "." in nombre:
+    def filtrar_extension(nombre: str):
+        if path.isfile(nombre):
             return not nombre.endswith(tuple(ext_ignorar))
 
     return list(filter(filtrar_extension, lista_directorio))
