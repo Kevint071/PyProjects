@@ -29,12 +29,11 @@ def crear_tabla():
     traduccion text
   );
 """)
+  
+# Usar código cuando se quiera ver las tablas creadas
+# cursor = conn.cursor()
 
-    # Usar codigo si se quiere ver las tablas creadas
-
-    # cursor.execute(
-    # """SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';""")
-    # tables = cursor.fetchall()
-    # print(tables)
-
-    
+# cursor.execute(
+# """SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';""")
+# tables = cursor.fetchall()
+# print(tables)
