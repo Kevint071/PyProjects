@@ -5,7 +5,7 @@ from colorama import Fore, Style
 from time import sleep
 from random import randint, sample
 from lxml import html
-from Globals import variables_globales
+from Globals import variables_globales, Driver
 from winsound import Beep
 import unicodedata
 from threading import Thread
@@ -229,8 +229,3 @@ def obtener_dinero(balance: int):
     sleep(3)
     text_box.send_keys(f"{Keys.ENTER}")
     print(Fore.LIGHTCYAN_EX + f"{balance} PyE coins obtenidas para jugar\n" + Style.RESET_ALL)
-
-
-def agregar_driver():
-    global Driver
-    Driver = variables_globales["Driver"]

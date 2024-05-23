@@ -1,4 +1,4 @@
-from Comandos_juegos import consultar_dinero, obtener_nombres_usuario, ejecutar_funciones_aleatorias, obtener_dinero, guardar_todo_dinero, estrategia_slots, agregar_driver
+from Comandos_juegos import consultar_dinero, obtener_nombres_usuario, ejecutar_funciones_aleatorias, obtener_dinero, guardar_todo_dinero, estrategia_slots
 from time import time, sleep
 from random import randint, sample
 from math import ceil
@@ -10,7 +10,6 @@ init()
 
 
 def iniciar_automatizacion_slot():
-    agregar_driver()
     porcentaje_jugadas_ganadas = 0.7
 
     balance, balance_temporal = 3000, 3000
