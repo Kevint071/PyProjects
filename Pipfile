@@ -14,10 +14,12 @@ selenium = "*"
 pylint = "*"
 flet = "*"
 pyinstaller = "*"
-windows-curses = "*"
+pytube = "*"
+ttkthemes = "*"
+lxml = "*"
+keyboard = "*"
 
 [dev-packages]
-black = "*"
 
 [requires]
 python_version = "3.11"
