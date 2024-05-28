@@ -1,4 +1,5 @@
-from Comandos_juegos import consultar_dinero, obtener_nombres_usuario, ejecutar_funciones_aleatorias, obtener_dinero, guardar_todo_dinero, estrategia_slots
+from Comandos_juegos import consultar_dinero, obtener_dinero, guardar_todo_dinero
+from Funciones_juegos import obtener_nombres_usuario, ejecutar_funciones_aleatorias, estrategia_juegos
 from time import time, sleep
 from random import randint, sample
 from math import ceil
@@ -31,7 +32,7 @@ def iniciar_automatizacion_slot():
 
     for numero_slot in range(1, cantidad_jugadas):
         tiempo_inicio_operacion = time()
-        dinero_jugada = estrategia_slots(numero_slot, coins, nombre, nombre_usuario)
+        dinero_jugada = estrategia_juegos("slots", numero_slot, coins, nombre, nombre_usuario)
         if not dinero_jugada:
              return False
         balance_temporal += dinero_jugada
