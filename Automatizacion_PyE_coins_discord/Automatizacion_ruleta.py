@@ -1,51 +1,22 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from Herramientas_navegador import esperar_obtener_elemento, esperar_obtener_elementos
 from time import sleep, time
 from Globals import variables_globales, Driver
+from Comandos_juegos import obtener_dinero, guardar_todo_dinero, consultar_dinero, jugar_ruleta
+from Funciones_juegos import obtener_nombres_usuario, ejecutar_funciones_aleatorias, estrategia_juegos
 
 
-def obtener_dinero(balance):
-    text_box = esperar_obtener_elemento(Driver, By.XPATH, "//form/div/div/div/div[3]/div/div[2]")
-    text_box.click()
-    sleep(0.5)
-    text_box.send_keys(f"!wd {balance}")
-    text_box.send_keys(f"{Keys.ENTER}")
-    sleep(3)
-
-
-def jugar_ruleta(coins, color):
-    text_box = esperar_obtener_elemento(Driver, By.XPATH, "//form/div/div/div/div[3]/div/div[2]")
-    text_box.click()
-    sleep(0.2)
-    text_box.send_keys(f"!ruleta {coins} {color}")
-    sleep(0.3)
-    text_box.send_keys(f"{Keys.ENTER}")
-    sleep(2.5)
-
-
-def obtener_jugada_slot(numero_slot):
-    jugada = esperar_obtener_elementos(Driver, By.XPATH, "//article/div/div/div[2][.//span[contains(., 'Tragamonedas')]]/span[contains(., 'Has')]")[-1].text
-    dinero_jugada = esperar_obtener_elementos(Driver, By.XPATH, "//article/div/div/div[2][.//span[contains(., 'Tragamonedas')]]/strong/span")[-1].text
-
-    print(f"{numero_slot}. {jugada} {dinero_jugada} PyE coins")
-    return jugada, int(dinero_jugada)
-
-
-def guardar_dinero(dinero_a_guardar):
-    text_box = esperar_obtener_elemento(Driver, By.XPATH, "//form/div/div/div/div[3]/div/div[2]")
-    text_box.click()
-    sleep(0.5)
-    text_box.send_keys(f"!dep {dinero_a_guardar}")
-    text_box.send_keys(f"{Keys.ENTER}")
-    sleep(1)
+def obtener_jugada_ruleta(numero_ruleta):
+  pass
 
 
 def iniciar_automatizacion_ruleta():
     balance = 4000
     balance_temporal = 4000
-    obtener_dinero(balance)
+
+    nombre, nombre_usuario = obtener_nombres_usuario()
+    ejecutar_funciones_aleatorias(consultar_dinero, lambda: obtener_dinero(balance))
 
     coins = 500
     tiempo_inicio = time()
@@ -55,6 +26,7 @@ def iniciar_automatizacion_ruleta():
         for i in range(1, 9):
             color = "red" if i <= 4 else "black"
             jugar_ruleta(coins, color)
+            # estrategia_juegos("ruleta", numero_ruleta, coins, nombre, nombre_usuario, color)
 
         balance_temporal += int((coins * 8 * 1.35) - (coins * 8))
         ganancia_total += int((coins * 8 * 1.35) - (coins * 8))
@@ -73,7 +45,7 @@ def iniciar_automatizacion_ruleta():
             dinero_a_guardar = balance_temporal - 4000
             print("Dinero a guardar:", dinero_a_guardar)
             
-            guardar_dinero(dinero_a_guardar)
+            guardar_todo_dinero(dinero_a_guardar)
             balance_temporal = 4000
 
         print("\nRetomando jugada\n")
