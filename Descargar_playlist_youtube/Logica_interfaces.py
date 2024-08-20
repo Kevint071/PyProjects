@@ -32,6 +32,7 @@ def validar_enlace(entry_playlist: ttk.Entry, label_info_: ttk.Label):
         return False
     elif base_enlace in enlace:
         label_info['text'] = ""
+        variables_globales["url"] = enlace.strip()
         return enlace, True
 
 
